@@ -21,13 +21,22 @@
       <div class="col">
         <div class="card border-0 shadow">
           <div class="card-body">
+            @if ($errors->any())
+            <div class="alert alert-danger">
+              @foreach ($errors->all() as $error)
+              - {{$error}} <br>
+              @endforeach
+            </div>
+            @endif
             <form action="{{ route('user.store') }}" method="post">
               <div class="row">
                 <div class="col">
-                  <input type="text" name="name" id="crete-name" class="form-control" placeholder="Nombre">
+                  <input type="text" name="name" id="crete-name" class="form-control" placeholder="Nombre"
+                    value="{{old('name')}}">
                 </div>
                 <div class="col">
-                  <input type="text" name="email" id="crete-email" class="form-control" placeholder="Email">
+                  <input type="text" name="email" id="crete-email" class="form-control" placeholder="Email"
+                    value="{{old('email')}}">
                 </div>
                 <div class="col">
                   <input type="password" name="password" id="crete-password" class="form-control"
