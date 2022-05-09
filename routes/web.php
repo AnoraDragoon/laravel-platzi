@@ -21,3 +21,7 @@ Route::get('/', function () {
 Route::get('/users', [UserController::class, 'index'])->name('user.index');
 Route::post('/user', [UserController::class, 'store'])->name('user.store');
 Route::delete('/user/{user}', [UserController::class, 'destroy'])->name('user.destroy');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
